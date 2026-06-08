@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MOSFET Miller Plateau Interactive Viewer</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chartjs-plugin-annotation@2.1.0"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.8/dist/katex.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/katex@0.16.8/dist/katex.min.js"></script>
+</head>
+<body>
+    <header>
+        <h1>MOSFET Miller Plateau Interactive Viewer</h1>
+    </header>
+    <main class="container">
+        <aside class="panel-left">
+            <h2>Parameters</h2>
+            <div class="controls" id="controls">
+                <!-- Controls injected by JS -->
+            </div>
+            
+            <h2 style="margin-top:20px;">Display</h2>
+            <div class="checkbox-group">
+                <label><input type="checkbox" id="show-ig" checked> Show gate current</label>
+                <label><input type="checkbox" id="show-psw" checked> Show switching loss</label>
+            </div>
+            
+            <div class="button-group">
+                <button id="btn-reset">Reset</button>
+                <button id="btn-export">Export CSV</button>
+            </div>
+        </aside>
+        <section class="panel-right">
+            <div class="chart-container" style="position: relative;">
+                <div id="title-on" class="chart-title"></div>
+                <canvas id="turnOnChart"></canvas>
+                <div id="vplat-label-on" class="chart-vplat-label"></div>
+                <div id="stats-on" class="chart-stats"></div>
+            </div>
+            <div class="chart-container" style="position: relative;">
+                <div id="title-off" class="chart-title"></div>
+                <canvas id="turnOffChart"></canvas>
+                <div id="vplat-label-off" class="chart-vplat-label"></div>
+                <div id="stats-off" class="chart-stats"></div>
+            </div>
+            <div class="interpretation" id="interpretation">
+                <!-- Dynamic text here -->
+            </div>
+        </section>
+    </main>
+    <script src="app.js"></script>
+</body>
+</html>
